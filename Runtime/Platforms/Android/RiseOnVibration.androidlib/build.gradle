@@ -1,0 +1,7 @@
+apply plugin: 'com.android.library'
+
+// Carries only the manifest with the VIBRATE permission; there is no Java code.
+android {
+    namespace "com.riseon.vibration"
+    compileSdkVersion 34
+}

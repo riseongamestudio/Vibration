@@ -1,0 +1,19 @@
+{
+    "name": "RiseOn.Vibration.iOS",
+    "rootNamespace": "RiseOn.Vibration.iOS",
+    "references": [
+        "RiseOn.Vibration"
+    ],
+    "includePlatforms": [
+        "Editor",
+        "iOS"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": false,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

@@ -1,0 +1,13 @@
+{
+  "name": "com.riseon.vibration",
+  "version": "1.0.0",
+  "displayName": "Vibration",
+  "description": "Short vibrations for Android and iOS through one static call: light, medium and heavy levels, or your own pulses and patterns",
+  "documentationUrl": "https://github.com/riseongamestudio/Vibration/blob/v1.0.0/README.md",
+  "author": {
+    "name": "RiseOn"
+  },
+  "dependencies": {
+    "com.unity.modules.androidjni": "1.0.0"
+  }
+}
