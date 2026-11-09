@@ -4,6 +4,16 @@ Mọi thay đổi đáng kể của `com.riseon.vibration` được ghi ở đâ
 [Keep a Changelog](https://keepachangelog.com/vi/1.1.0/), đánh số theo
 [Semantic Versioning](https://semver.org/lang/vi/).
 
+## [1.0.1] - 2026-11-09
+
+### Sửa
+
+- Android: `Vibration.Play` không còn chặn main thread. Mọi lời gọi sang Java,
+  kể cả lần khởi động, chạy trên một thread nền riêng; `Play` chỉ ghi yêu cầu
+  rồi trả về. Trước đây mỗi lần gọi chờ dịch vụ rung của hệ thống 4 đến 60 ms
+  trên Samsung A30s, lần đầu trên 150 ms. Yêu cầu tới dồn dập thì yêu cầu mới
+  thay yêu cầu chưa kịp chạy.
+
 ## [1.0.0] - 2026-09-25
 
 Bản phát hành đầu tiên.

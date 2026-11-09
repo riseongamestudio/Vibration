@@ -29,6 +29,21 @@ Java để lấy `Vibrator`: từ Android 12 (API 31) qua
 `getSystemService("vibrator")`. Máy không có bộ rung (`hasVibrator()` trả
 false) thì từ đó mọi lần gọi đều bỏ qua.
 
+## Luồng riêng
+
+`Vibrator.vibrate` gọi sang dịch vụ rung của hệ thống và chờ nó trả lời. Đo
+trên Samsung A30s (Android 11), mỗi lần gọi mất 4 đến 60 ms, lần đầu kèm phần
+khởi động trên 150 ms. Gọi trên main thread thì khung hình phải chờ chừng ấy.
+
+Vì vậy `Play` trên main thread chỉ đổi nhịp sang dạng sóng (xem dưới), ghi yêu
+cầu vào một chỗ chờ rồi trả về ngay. Mọi lời gọi sang Java, kể cả phần khởi động,
+chạy trên một thread nền riêng tên `RiseOn.Vibration`, tạo lúc rung lần đầu và
+gắn vào JVM bằng `AndroidJNI.AttachCurrentThread`. Riêng `currentActivity` được
+đọc trên main thread trước khi thread chạy.
+
+Chỗ chờ chỉ giữ một yêu cầu: gọi `Play` dồn dập nhanh hơn hệ thống kịp rung thì
+yêu cầu mới thay yêu cầu chưa chạy, vì yêu cầu cũ có rung cũng đã trễ.
+
 ## Từ nhịp sang dạng sóng
 
 Mọi kiểu gọi đều thành dạng sóng: mảng `timings` xen kẽ tắt/bật tính bằng mili

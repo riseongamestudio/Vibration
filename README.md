@@ -41,7 +41,7 @@ khai, không phải thêm gì vào project.
     }
   ],
   "dependencies": {
-    "com.riseon.vibration": "1.0.0"
+    "com.riseon.vibration": "1.0.1"
   }
 }
 ```
