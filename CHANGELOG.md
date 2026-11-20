@@ -4,6 +4,18 @@ Mọi thay đổi đáng kể của `com.riseon.vibration` được ghi ở đâ
 [Keep a Changelog](https://keepachangelog.com/vi/1.1.0/), đánh số theo
 [Semantic Versioning](https://semver.org/lang/vi/).
 
+## [2.0.0] - 2026-11-20
+
+### Đổi
+
+- Cần Odin Inspector như mọi pack RiseOn: mọi assembly chỉ compile khi có
+  `ODIN_INSPECTOR`, thiếu Odin thì project báo một lỗi từ
+  `RiseOn.Vibration.Requirements`. Pack không dùng Odin; luật chung để mọi pack
+  cài đặt như nhau.
+- Assembly và namespace iOS đổi thành `RiseOn.Vibration.IOS`, hàm native thành
+  `ROVibrationPlayLevel`, `ROVibrationPlayPattern`. Asmdef nào tham chiếu
+  `RiseOn.Vibration.iOS` thì đổi theo.
+
 ## [1.0.1] - 2026-11-09
 
 ### Sửa

@@ -1,6 +1,6 @@
 {
-    "name": "RiseOn.Vibration.iOS",
-    "rootNamespace": "RiseOn.Vibration.iOS",
+    "name": "RiseOn.Vibration.IOS",
+    "rootNamespace": "RiseOn.Vibration.IOS",
     "references": [
         "RiseOn.Vibration"
     ],
@@ -13,7 +13,9 @@
     "overrideReferences": false,
     "precompiledReferences": [],
     "autoReferenced": false,
-    "defineConstraints": [],
+    "defineConstraints": [
+        "ODIN_INSPECTOR"
+    ],
     "versionDefines": [],
     "noEngineReferences": false
 }

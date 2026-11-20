@@ -18,7 +18,7 @@ static UIImpactFeedbackGenerator* ROImpactGenerator(UIImpactFeedbackStyle style)
 }
 
 // VibrationLevel 0, 1, 2 are UIImpactFeedbackStyleLight, Medium, Heavy.
-extern "C" void ROVibration_PlayLevel(int32_t level) {
+extern "C" void ROVibrationPlayLevel(int32_t level) {
     if (level < UIImpactFeedbackStyleLight || level > UIImpactFeedbackStyleHeavy) return;
 
     [ROImpactGenerator((UIImpactFeedbackStyle)level) impactOccurred];
@@ -68,7 +68,7 @@ static void ROPlayPulsesAsTaps(const ROVibrationPulse* pulses, int32_t count) {
     }
 }
 
-extern "C" void ROVibration_PlayPattern(const ROVibrationPulse* pulses, int32_t count) {
+extern "C" void ROVibrationPlayPattern(const ROVibrationPulse* pulses, int32_t count) {
     if (pulses == NULL || count <= 0) return;
 
     CHHapticEngine* engine = ROHapticEngine();

@@ -3,8 +3,8 @@
 Rung ngắn cho Android và iOS qua một lớp tĩnh: gọi nhanh bằng mức có sẵn, hoặc
 tự định nghĩa từng nhịp.
 
-Package `com.riseon.vibration`, namespace `RiseOn.Vibration`. Không phụ thuộc
-package nào khác, chỉ dùng module có sẵn của Unity.
+Package `com.riseon.vibration`, namespace `RiseOn.Vibration`. Ngoài Odin,
+không phụ thuộc package nào khác, chỉ dùng module có sẵn của Unity.
 
 ## Mục lục
 
@@ -21,15 +21,19 @@ package nào khác, chỉ dùng module có sẵn của Unity.
 | Phụ thuộc | Cách có | Dùng cho |
 |---|---|---|
 | Unity 6000.3 | | Bản đang dùng để phát triển |
+| [Odin Inspector](https://odininspector.com) | Cài tay từ Asset Store | Pack không dùng Odin, nhưng mọi pack RiseOn đều cần nó, để cài đặt như nhau |
 | `com.unity.modules.androidjni` | Tự cài theo `package.json`, có sẵn trong Unity | Gọi `Vibrator` của Android |
+
+Odin không có trên UPM nên phải cài vào project trước. Thiếu Odin thì project
+báo một lỗi từ `RiseOn.Vibration.Requirements`.
 
 Quyền `VIBRATE` của Android và framework Core Haptics của iOS do package tự
 khai, không phải thêm gì vào project.
 
 ## Cài đặt
 
-**Registry RiseOn** (khuyên dùng): thêm registry RiseOn với scope `com.riseon` vào
-`Packages/manifest.json`, rồi thêm package:
+**Registry RiseOn** (khuyên dùng): thêm registry RiseOn với scope `com.riseon`
+vào `Packages/manifest.json`, rồi thêm package:
 
 ```json
 {
@@ -41,7 +45,7 @@ khai, không phải thêm gì vào project.
     }
   ],
   "dependencies": {
-    "com.riseon.vibration": "1.0.1"
+    "com.riseon.vibration": "2.0.0"
   }
 }
 ```
@@ -49,7 +53,7 @@ khai, không phải thêm gì vào project.
 **Git URL**:
 
 ```
-https://github.com/riseongamestudio/Vibration.git
+https://github.com/riseongamestudio/Vibration.git#v2.0.0
 ```
 
 **Thư mục local**: `"com.riseon.vibration": "file:D:/path/to/Vibration"`.
@@ -109,7 +113,7 @@ main thread.
 |---|---|---|---|
 | `Vibration`, `VibrationLevel`, `VibrationPulse`, `VibrationPattern` | `RiseOn.Vibration` | API chung | README này |
 | Android | `RiseOn.Vibration.Android` | Rung qua `Vibrator`, đổi mọi kiểu gọi thành dạng sóng | [Runtime/Platforms/Android](Runtime/Platforms/Android/README.md) |
-| iOS | `RiseOn.Vibration.iOS` | Rung qua UIKit và Core Haptics | [Runtime/Platforms/iOS](Runtime/Platforms/iOS/README.md) |
+| iOS | `RiseOn.Vibration.IOS` | Rung qua UIKit và Core Haptics | [Runtime/Platforms/iOS](Runtime/Platforms/iOS/README.md) |
 
 ## Lịch sử thay đổi
 

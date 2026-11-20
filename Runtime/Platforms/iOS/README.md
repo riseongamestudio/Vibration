@@ -12,7 +12,7 @@ WebGL, IL2CPP nối hàm `__Internal` ngay lúc build, nên nếu dòng `extern`
 assembly dùng chung thì build nền tảng không có `ROVibration.mm` sẽ báo thiếu
 hàm.
 
-Assembly `RiseOn.Vibration.iOS` chỉ bật cho iOS và Editor: build iOS có nó,
+Assembly `RiseOn.Vibration.IOS` chỉ bật cho iOS và Editor: build iOS có nó,
 build nền tảng khác thì không. Editor vẫn biên dịch để bắt lỗi, nhưng lúc chạy
 nó chỉ tự cài vào `Vibration` khi `Application.platform` là iOS.
 
