@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Threading;
 using UnityEngine;
 using UnityEngine.Android;
@@ -55,7 +55,7 @@ namespace RiseOn.Vibration.Android {
         private static void PlayPattern(VibrationPattern pattern) {
             // Read now: the caller may reuse the pulses once Play returns.
             var waveform = Waveform.Of(pattern);
-            if (waveform.Timings is null) return;
+            if (waveform.Timings == null) return;
 
             Post(-1, waveform);
         }
@@ -69,7 +69,7 @@ namespace RiseOn.Vibration.Android {
                 Monitor.Pulse(gate);
             }
 
-            if (thread is not null) return;
+            if (thread != null) return;
 
             activity = AndroidApplication.currentActivity;
             thread   = new Thread(Run) { IsBackground = true, Name = "RiseOn.Vibration" };
@@ -113,7 +113,7 @@ namespace RiseOn.Vibration.Android {
             var sdk = version.GetStatic<int>("SDK_INT");
 
             vibrator   = GetVibrator(sdk);
-            canVibrate = vibrator is not null && vibrator.Call<bool>("hasVibrator");
+            canVibrate = vibrator != null && vibrator.Call<bool>("hasVibrator");
             if (canVibrate is false) return false;
 
             if (sdk >= 26) effectClass = new AndroidJavaClass("android.os.VibrationEffect");
@@ -130,7 +130,7 @@ namespace RiseOn.Vibration.Android {
         }
 
         private static object[] GetVibrateArgs(Waveform waveform) {
-            return effectClass is null
+            return effectClass == null
                 ? new object[] { waveform.Timings, -1 }
                 : new object[] { effectClass.CallStatic<AndroidJavaObject>("createWaveform", waveform.Timings, waveform.Amplitudes, -1) };
         }

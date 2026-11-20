@@ -22,10 +22,10 @@ không phụ thuộc package nào khác, chỉ dùng module có sẵn của Unit
 |---|---|---|
 | Unity 6000.3 | | Bản đang dùng để phát triển |
 | [Odin Inspector](https://odininspector.com) | Cài tay từ Asset Store | Pack không dùng Odin, nhưng mọi pack RiseOn đều cần nó, để cài đặt như nhau |
-| `com.unity.modules.androidjni` | Tự cài theo `package.json`, có sẵn trong Unity | Gọi `Vibrator` của Android |
+| `com.unity.modules.androidjni` 1.0.0 | Tự cài theo `package.json`, có sẵn trong Unity | Gọi `Vibrator` của Android |
 
-Odin không có trên UPM nên phải cài vào project trước. Thiếu Odin thì project
-báo một lỗi từ `RiseOn.Vibration.Requirements`.
+Odin không có trên UPM nên phải cài vào project trước. Thiếu Odin thì project báo một
+lỗi từ `RiseOn.Vibration.Requirements`.
 
 Quyền `VIBRATE` của Android và framework Core Haptics của iOS do package tự
 khai, không phải thêm gì vào project.
@@ -45,15 +45,15 @@ vào `Packages/manifest.json`, rồi thêm package:
     }
   ],
   "dependencies": {
-    "com.riseon.vibration": "2.0.0"
+    "com.riseon.vibration": "2.0.1"
   }
 }
 ```
 
-**Git URL**:
+**Git URL**: *Package Manager → + → Add package from git URL*:
 
 ```
-https://github.com/riseongamestudio/Vibration.git#v2.0.0
+https://github.com/riseongamestudio/Vibration.git
 ```
 
 **Thư mục local**: `"com.riseon.vibration": "file:D:/path/to/Vibration"`.

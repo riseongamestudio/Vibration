@@ -1,4 +1,4 @@
-namespace RiseOn.Vibration {
+﻿namespace RiseOn.Vibration {
     /// <summary>
     /// How strong <see cref="Vibration.Play(VibrationLevel)"/> taps.<br/>
     /// The values cross into the native iOS code and into serialized fields, so they are spelled out rather than left to declaration order.
